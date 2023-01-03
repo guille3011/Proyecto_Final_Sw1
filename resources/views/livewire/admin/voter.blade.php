@@ -6,8 +6,8 @@
             <div class="card my-3">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h4>{{ __('Voters ') }}({{ $total }})</h4>
-                        <button wire:click='showForm' class="btn btn-primary">New</button>
+                        <h4>{{ __('Votantes') }}({{ $total }})</h4>
+                        <button wire:click='showForm' class="btn btn-primary">nuevo</button>
                     </div>
                 </div>
             </div>
@@ -28,14 +28,14 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Name</th>
+                                <th>Nombre</th>
                                 <th>Email</th>
                                 <th>Vote Id</th>
-                                <th>votes</th>
-                                <th>voted</th>
-                                <th>Image</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>votos</th>
+                                <th>Estado de voto</th>
+                                <th>Foto</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,11 +47,12 @@
                                         <td>{{ $voter->email }}</td>
                                         <td>{{ $voter->vote_id }}</td>
                                         <td>{{ $voter->vote_limit }}</td>
-                                        <td>{{ $voter->voted == 0 ? 'Not Voted' : 'Voted' }}</td>
+                                        <td>{{ $voter->voted == 0 ? 'No voto' : 'Si voto' }}</td>
                                         <td><img src="{{ asset('storage') }}/{{ $voter->image }}"
                                                 style="width:70px;height:70px;" alt=""></td>
-                                        <td><button wire:click="edit({{ $voter->id }})" class="btn btn-success">Edit</button></td>
-                                        <td><button class="btn btn-danger" wire:click.prevent='delete({{ $voter->id }})'>Delete</button></td>
+                                                
+                                        <td><button wire:click="edit({{ $voter->id }})" class="btn btn-success">Editar</button></td>
+                                        <td><button class="btn btn-danger" wire:click.prevent='delete({{ $voter->id }})'>Eliminar</button></td>
                                     </tr>
                                 @endforeach
                             @else
@@ -64,11 +65,11 @@
             @endif
             @if ($showCreate == true)
                 <div class="my-2">
-                    <button class="btn btn-secondary my-2" wire:click='goBack'>Go Back</button>
+                    <button class="btn btn-secondary my-2" wire:click='goBack'>atras</button>
 
                     <form wire:submit.prevent='create'>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Name:</label>
+                            <label for="pwd" class="form-label">Nombre:</label>
                             <input type="text" wire:model.lazy="name" class="form-control" placeholder="Enter Name">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -84,7 +85,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
+                            <label for="pwd" class="form-label">Contrasena:</label>
                             <input type="password" wire:model.lazy="password" class="form-control"
                                 placeholder="Enter Password">
                             @error('password')
@@ -92,7 +93,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Image:</label>
+                            <label for="pwd" class="form-label">foto:</label>
                             <input type="file" wire:model="image" class="form-control" placeholder="Enter Image">
                             @error('image')
                                 <span class="text-danger">{{ $message }}</span>
@@ -102,17 +103,17 @@
                             @endif
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
                 </div>
             @endif
             @if ($showUpdate == true)
                 <div class="my-2">
-                    <button class="btn btn-secondary my-2" wire:click='goBack'>Go Back</button>
+                    <button class="btn btn-secondary my-2" wire:click='goBack'>atras</button>
 
                     <form wire:submit.prevent='update({{ $voter_id }})'>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Name:</label>
+                            <label for="pwd" class="form-label">Nombre:</label>
                             <input type="text" wire:model.lazy="edit_name" class="form-control" placeholder="Enter Name">
                             @error('edit_name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -140,7 +141,7 @@
                             @endif
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">actualizar</button>
                     </form>
                 </div>
             @endif

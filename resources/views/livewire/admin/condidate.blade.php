@@ -6,8 +6,8 @@
             <div class="card my-3">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h4>{{ __('Condidates ') }}({{ $total }})</h4>
-                        <button wire:click='showForm' class="btn btn-primary">New</button>
+                        <h4>{{ __('Condidatos') }}({{ $total }})</h4>
+                        <button wire:click='showForm' class="btn btn-primary">Nuevo</button>
                     </div>
                 </div>
             </div>
@@ -28,14 +28,14 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Fname</th>
-                                <th>Lname</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
                                 <th>Email</th>
-                                <th>Points</th>
-                                <th>Position</th>
-                                <th>Image</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Puntos</th>
+                                <th>Posicion</th>
+                                <th>Foto</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,12 +50,12 @@
                                         <td>{{ $condidate->positions->positions }}</td>
                                         <td><img src="{{ asset('storage') }}/{{ $condidate->image }}"
                                                 style="width:70px;height:70px;" alt=""></td>
-                                        <td><button wire:click="edit({{ $condidate->id }})" class="btn btn-success">Edit</button></td>
-                                        <td><button class="btn btn-danger" wire:click.prevent='delete({{ $condidate->id }})'>Delete</button></td>
+                                        <td><button wire:click="edit({{ $condidate->id }})" class="btn btn-success">Editar</button></td>
+                                        <td><button class="btn btn-danger" wire:click.prevent='delete({{ $condidate->id }})'>Eliminar</button></td>
                                     </tr>
                                 @endforeach
                             @else
-                                <h4>Record Not Found</h4>
+                                <h4>sin datos disponibles en este momento</h4>
                             @endif
 
                         </tbody>
@@ -64,11 +64,11 @@
             @endif
             @if ($showCreate == true)
                 <div class="my-2">
-                    <button class="btn btn-secondary my-2" wire:click='goBack'>Go Back</button>
+                    <button class="btn btn-secondary my-2" wire:click='goBack'>atras</button>
 
                     <form wire:submit.prevent='store'>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">First Name:</label>
+                            <label for="pwd" class="form-label"> Nombre:</label>
                             <input type="text" wire:model.lazy="fname" class="form-control"
                                 placeholder="Enter First Name">
                             @error('fname')
@@ -77,7 +77,7 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Last Name:</label>
+                            <label for="pwd" class="form-label">Apellido:</label>
                             <input type="text" wire:model.lazy="lname" class="form-control"
                                 placeholder="Enter Last Name">
                             @error('lname')
@@ -85,9 +85,9 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Positions:</label>
+                            <label for="pwd" class="form-label">Posiciones:</label>
                             <select wire:model.lazy='pos_id' class="form-control">
-                                <option selected>Select the position</option>
+                                <option selected>Seleccione la posicion</option>
 
                                 @foreach ($positions as $position)
                                     <option value="{{ $position->id }}">{{ $position->positions }}</option>
@@ -106,7 +106,7 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Image:</label>
+                            <label for="pwd" class="form-label">Foto:</label>
                             <input type="file" wire:model="image" class="form-control" placeholder="Enter Image">
                             @error('image')
                                 <span class="text-danger">{{ $message }}</span>
@@ -116,17 +116,17 @@
                             @endif
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
                 </div>
             @endif
             @if ($showUpdate == true)
                 <div class="my-2">
-                    <button class="btn btn-secondary my-2" wire:click='goBack'>Go Back</button>
+                    <button class="btn btn-secondary my-2" wire:click='goBack'>atras</button>
 
                     <form wire:submit.prevent='update({{ $condidate_id }})'>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">First Name:</label>
+                            <label for="pwd" class="form-label">Nombre:</label>
                             <input type="text" wire:model.lazy="edit_fname" class="form-control"
                                 placeholder="Enter First Name">
                             @error('edit_fname')
@@ -135,7 +135,7 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Last Name:</label>
+                            <label for="pwd" class="form-label">Apellido:</label>
                             <input type="text" wire:model.lazy="edit_lname" class="form-control"
                                 placeholder="Enter Last Name">
                             @error('edit_lname')
@@ -143,9 +143,9 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Positions:</label>
+                            <label for="pwd" class="form-label">Posicion:</label>
                             <select wire:model.lazy='edit_pos_id' class="form-control">
-                                <option selected>Select the position</option>
+                                <option selected>Seleccione la posicion</option>
 
                                 @foreach ($positions as $position)
                                     <option value="{{ $position->id }}">{{ $position->positions }}</option>
@@ -164,7 +164,7 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="pwd" class="form-label">Image:</label>
+                            <label for="pwd" class="form-label">Foto:</label>
                             <input type="file" wire:model="new_image" class="form-control" placeholder="Enter Image">
                             @if ($new_image)
                                 <img src="{{ $new_image->temporaryUrl() }}" style="width:70px;height:70px;" alt="">
@@ -175,7 +175,7 @@
                             <input type="hidden" wire:model="old_image">
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
                 </div>
             @endif

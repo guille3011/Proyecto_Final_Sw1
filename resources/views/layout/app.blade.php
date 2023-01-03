@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Voting {{ $title }}</title>
+    <title>Votacion online {{ $title }}</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     @livewireStyles
@@ -28,14 +28,14 @@
     <nav class="container-fluid bg-dark">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <h3 class="nav-link text-white">Home</h3>
+                <h3 class="nav-link text-white">pagina principal</h3>
                 <div class="d-flex text-white align-items-center">
                     @auth
                         <h5>{{ Auth::user()->name }}</h5>
                         @livewire('frontend.logout')
                     @endauth
                     @guest
-                        <a href="{{ route('front.login') }}" class="nav-link text-white">Login</a>
+                        <a href="{{ route('front.login') }}" class="nav-link text-white">Iniciar sesion</a>
                     @endguest
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <h1 class="text-white">{{ $image_title }}</h1> <br>
             </div>
             @auth
-                <h4>Total Votes : {{ Auth::user()->vote_limit }}</h4>
+                <h4>Votos totales : {{ Auth::user()->vote_limit }}</h4>
 
             @endauth
 
@@ -57,7 +57,7 @@
 
     {{ $slot }}
     <footer class="bg-dark text-center p-5">
-        <h4 class="text-white">Simple voting system in laravel powered by hilal ahmad</h4>
+        <h4 class="text-white">Sistema de votacion - software 1</h4>
     </footer>
     <!-- Latest compiled JavaScript -->
     <script src=" {{ asset('js/bootstrap.min.css') }}">

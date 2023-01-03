@@ -12,7 +12,7 @@
                         <div class="my-5">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3>See you in next Eelection</h3>
+                                    <h3>Gracias por votar</h3>
                                 </div>
                             </div>
                         </div>

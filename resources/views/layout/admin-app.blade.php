@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Voting System {{ $title }}</title>
+    <title>Sistema de votacion Online {{ $title }}</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     @livewireStyles
@@ -14,7 +14,7 @@
 
 <body style="background-color: rgb(224, 224, 224);">
     <div class="container-fluid p-2">
-        <h1 class="text-center">Online Voting System</h1>
+        <h1 class="text-center">sistema de votacion online</h1>
         {{-- @if (Auth::guard('admin')->user->username) --}}
         <h4 class="text-center">{{ Auth::guard('admin')->user()->username }}</h4>
         {{-- @endif --}}
@@ -23,25 +23,25 @@
     <div class="container">
         <div class="row flex justify-content-center">
             <div class="col-xl-2 my-3 col-lg-2 col-md-3 col-sm-4 col-3">
-                <a href="{{ route('admin.dashboard') }}" class="btn btn-danger w-100">Dashboard</a>
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-danger w-100">dashboard</a>
 
             </div>
             <div class="col-xl-2 my-3 col-lg-2 col-md-3 col-sm-4 col-3">
-                <a href="{{ route('admin.votes') }}" class="btn btn-danger w-100">Votes</a>
+                <a href="{{ route('admin.votes') }}" class="btn btn-danger w-100">Votos</a>
 
             </div>
             <div class="col-xl-2 my-3 col-lg-2 col-md-3 col-sm-4 col-3">
-                <a href="{{ route('admin.positions') }}" class="btn btn-danger w-100">Position</a>
+                <a href="{{ route('admin.positions') }}" class="btn btn-danger w-100">Posiciones</a>
             </div>
             <div class="col-xl-2 my-3 col-lg-2 col-md-3 col-sm-4 col-3">
-                <a href="{{ route('admin.condidates') }}" class="btn btn-danger w-100">Condidates</a>
+                <a href="{{ route('admin.condidates') }}" class="btn btn-danger w-100">Condidatos</a>
             </div>
             <div class="col-xl-2 my-3 col-lg-2 col-md-3 col-sm-4 col-3">
-                <a href="{{ route('admin.voters') }}" class="btn btn-danger w-100">Voters</a>
+                <a href="{{ route('admin.voters') }}" class="btn btn-danger w-100">Votantes</a>
 
             </div>
             <div class="col-xl-2 my-3 col-lg-2 col-md-3 col-sm-4 col-3">
-                <a href="{{ route('admin.settings') }}" class="btn btn-danger w-100">Setting</a>
+                <a href="{{ route('admin.settings') }}" class="btn btn-danger w-100">configuraciones</a>
 
             </div>
             <div class="col-xl-2 my-3 col-lg-2 col-md-3 col-sm-4 col-3">
@@ -51,8 +51,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item btn btn-danger"
-                                href="{{ route('admin.change_password') }}">Change
-                                Password</a></li>
+                                href="{{ route('admin.change_password') }}">cambiar cotrasena</a></li>
                         <li>
                             @livewire('admin.logout')
                         </li>
@@ -63,7 +62,7 @@
     </div>
     {{ $slot }}
     <footer class="bg-dark text-center p-2">
-        <h4 class="text-white">Simple voting system in Dashboard powered by hilal ahmad</h4>
+        <h4 class="text-white">Sistema de votacion - software 1</h4>
     </footer>
     <!-- Latest compiled JavaScript -->
     <script src=" {{ asset('js/bootstrap.min.js') }}"></script>

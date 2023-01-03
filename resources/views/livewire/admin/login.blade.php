@@ -4,7 +4,7 @@
         </x-slot>
 
         <div class="my-5">
-            <h1 class="text-center"> Admin Login</h1>
+            <h1 class="text-center"> Login administrador</h1>
             <div class="container my-4">
                 <div class="row flex justify-content-center">
                     <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12">

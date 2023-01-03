@@ -1,12 +1,12 @@
 <div>
     <x-slot:title>
-        Home
+        Pagina principal de votacion
         </x-slot>
         <x-slot:image_title>
-            Election 2022
+            Eleccion 2022
             </x-slot>
             <div class="my-5">
-                <h1 class="text-center">Voting For Good Person</h1>
+                <h1 class="text-center">Votaciones</h1>
                 <div class="container my-4">
                     <div class="table-responsive">
                         @if (session()->has('success'))
@@ -18,11 +18,11 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th class="text-center">Image</th>
-                                    <th class="text-center">Condidate Name</th>
-                                    <th class="text-center">Position</th>
+                                    <th class="text-center">Foto</th>
+                                    <th class="text-center"> Nombre Condidato</th>
+                                    <th class="text-center">Posicion</th>
                                     
-                                    <th class="text-center">Submit vote</th>
+                                    <th class="text-center">Enviar voto</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,7 +47,7 @@
                                             @isset($isVoted)
                                                 @if ($isVoted->user_id == Auth::user()->id || $isVoted->con_id == $candidate->id)
                                                     <td class="text-center" style="vertical-align: middle"><button
-                                                            disabled class="btn btn-success">Submited</button>
+                                                            disabled class="btn btn-success">Enviado</button>
                                                     </td>
                                                 @endif
                                             @endisset
@@ -55,7 +55,7 @@
                                             @empty($isVoted)
                                                 <td class="text-center" style="vertical-align: middle"><button
                                                         class="btn btn-success"
-                                                        wire:click='addVote({{ $candidate->id }})'>Submit</button>
+                                                        wire:click='addVote({{ $candidate->id }})'>Enviar</button>
                                                 </td>
                                             @endempty
 
@@ -64,7 +64,7 @@
                                         </tr>
                                     @endforeach
                                 @else
-                                    <h3>Record Not Found</h3>
+                                    <h3>sin dato disponibles en este momento</h3>
                                 @endif
 
 
